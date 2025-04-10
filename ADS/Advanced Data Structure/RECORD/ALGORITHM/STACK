@@ -1,0 +1,66 @@
+Here is the step-by-step algorithm for the given C program implementing a stack using a linked list:
+
+---
+
+### ALGORITHM
+
+Step 1: Start.
+
+Step 2: Initialize the top pointer of the stack as NULL.
+
+Step 3: Display the menu options:  
+   - 1. PUSH  
+   - 2. POP  
+   - 3. DISPLAY  
+   - 4. EXIT  
+
+Step 4: Repeat Steps 5-9 until the user chooses option 4 (EXIT).
+
+---
+
+### Step 5: PUSH operation (Add an element to the stack):  
+1. Create a new node ptr of type struct stack.  
+2. Read the value to be pushed (val).  
+3. Allocate memory for ptr using malloc.  
+4. Assign ptr->data = val.  
+5. Set ptr->next to top (link the new node to the current top).  
+6. Update top to point to the new node.  
+7. Return the updated top pointer.
+
+---
+
+### Step 6: POP operation (Remove an element from the stack):  
+1. Check if the stack is empty (i.e., top == NULL):  
+   - If empty, print “STACK UNDERFLOW”.  
+2. Otherwise:  
+   - Create a temporary pointer ptr and set ptr = top.  
+   - Move top to top->next.  
+   - Print the deleted value: ptr->data.  
+   - Free the memory allocated for ptr using free(ptr).  
+3. Return the updated top pointer.
+
+---
+
+### Step 7: DISPLAY operation (Display all elements of the stack):  
+1. Create a temporary pointer ptr and set ptr = top.  
+2. Check if the stack is empty (i.e., top == NULL):  
+   - If empty, print “STACK IS EMPTY”.  
+3. Otherwise:  
+   - Traverse the stack using a while loop (ptr != NULL):  
+     - Print the value of each node: ptr->data.  
+     - Move ptr to the next node: ptr = ptr->next.  
+4. Return the top pointer.
+
+---
+
+### Step 8: If the user selects EXIT (option 4), terminate the program.
+
+Step 9: If the user enters an invalid choice, print “Invalid choice”.
+
+---
+
+Step 10: Stop.
+
+---
+
+This algorithm efficiently describes the PUSH, POP, and DISPLAY operations on a stack implemented using a linked list.

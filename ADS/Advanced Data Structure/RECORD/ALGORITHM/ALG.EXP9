@@ -1,0 +1,76 @@
+
+---
+
+findParent
+
+Step 1: Start.
+
+Step 2: If the component is its own parent (i.e., parent[component] == component), return the component as its parent.
+
+Step 3: Otherwise, recursively find the parent of the component.
+
+Step 4: Perform path compression by setting the parent of the component to the found parent.
+
+Step 5: Return the found parent.
+
+Step 6: Stop.
+
+
+---
+
+unionSet
+
+Step 1: Start.
+
+Step 2: Find the parents of the two components u and v using findParent.
+
+Step 3: If the rank of u is less than the rank of v, set parent[u] = v.
+
+Step 4: If the rank of u is greater than the rank of v, set parent[v] = u.
+
+Step 5: If the rank of u equals the rank of v, set parent[v] = u and increment the rank of u.
+
+Step 6: Stop.
+
+
+---
+
+kruskalAlgo
+
+Step 1: Start.
+
+Step 2: Sort the edges in non-decreasing order of their weight using a nested loop.
+
+Step 3: Initialize the parent and rank arrays. Set parent[i] = i and rank[i] = 0 for each vertex i.
+
+Step 4: Initialize minCost = 0.
+
+Step 5: For each edge (u, v, weight):
+
+a. Find the parents of u and v.
+
+b. If u and v are not connected (i.e., they belong to different components), add the edge to the MST, update the parent using unionSet, and add the weight to minCost.
+
+
+Step 6: Print the edges in the MST and the total minimum cost.
+
+Step 7: Stop.
+
+
+---
+
+main
+
+Step 1: Start.
+
+Step 2: Read the number of vertices and edges.
+
+Step 3: Read the edges (each consisting of two vertices and a weight) into an adjacency list or array.
+
+Step 4: Call kruskalAlgo to compute the Minimum Spanning Tree (MST) using Kruskal's algorithm.
+
+Step 5: Stop.
+
+
+---
+

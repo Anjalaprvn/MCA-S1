@@ -1,0 +1,86 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int findParent(int parent[], int component) {
+    int result;
+    if (parent[component] == component)
+        return component;
+    result = findParent(parent, parent[component]);
+    parent[component] = result;
+    return result;
+}
+
+void unionSet(int u, int v, int parent[], int rank[]) {
+    int temp;
+    u = findParent(parent, u);
+    v = findParent(parent, v);
+
+    if (rank[u] < rank[v]) {
+        parent[u] = v;
+    } else if (rank[u] > rank[v]) {
+        parent[v] = u;
+    } else {
+        parent[v] = u;
+        rank[u]++;
+    }
+}
+
+void kruskalAlgo(int vertices, int edges[][3], int num_edges) {
+    int temp[3], i, j, u, v, weight, minCost, k;
+    minCost = 0;
+
+    for (i = 0; i < num_edges - 1; i++) {
+        for (j = i + 1; j < num_edges; j++) {
+            if (edges[i][2] > edges[j][2]) {
+                for (k = 0; k < 3; k++) {
+                    temp[k] = edges[i][k];
+                    edges[i][k] = edges[j][k];
+                    edges[j][k] = temp[k];
+                }
+            }
+        }
+    }
+
+    int parent[vertices], rank[vertices];
+    for (i = 0; i < vertices; i++) {
+        parent[i] = i;
+        rank[i] = 0;
+    }
+
+    printf("Edges in the Minimum Spanning Tree (MST):\n");
+
+    for (i = 0; i < num_edges; i++) {
+        u = findParent(parent, edges[i][0]);
+        v = findParent(parent, edges[i][1]);
+        weight = edges[i][2];
+
+        if (u != v) {
+            unionSet(u, v, parent, rank);
+            printf("%d -- %d == %d\n", edges[i][0], edges[i][1], weight);
+            minCost += weight;
+        }
+    }
+
+    printf("Total Minimum Cost of Spanning Tree: %d\n", minCost);
+}
+
+int main() {
+    int vertices, num_edges, i;
+
+    printf("Enter the number of vertices: ");
+    scanf("%d", &vertices);
+    printf("Enter the number of edges: ");
+    scanf("%d", &num_edges);
+
+    int edges[num_edges][3];
+
+    printf("Enter the edges (format: vertex1 vertex2 weight):\n");
+    for (i = 0; i < num_edges; i++) {
+        printf("Edge %d: ", i + 1);
+        scanf("%d %d %d", &edges[i][0], &edges[i][1], &edges[i][2]);
+    }
+
+    kruskalAlgo(vertices, edges, num_edges);
+
+    return 0;
+}

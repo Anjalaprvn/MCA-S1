@@ -1,0 +1,111 @@
+makeSet
+
+Step 1: Start.
+
+Step 2: Loop through i = 0 to dis.n - 1:
+
+Set dis.parent[i] = i.
+
+Set dis.rank[i] = 0.
+
+
+Step 3: Stop.
+
+
+---
+
+displaySet
+
+Step 1: Start.
+
+Step 2: Print the "Parent Array" header.
+
+Step 3: Loop through i = 0 to dis.n - 1:
+
+Print the value of dis.parent[i].
+
+
+Step 4: Print the "Rank Array" header.
+
+Step 5: Loop through i = 0 to dis.n - 1:
+
+Print the value of dis.rank[i].
+
+
+Step 6: Stop.
+
+
+---
+
+find
+
+Step 1: Start.
+
+Step 2: Check if dis.parent[x] != x:
+
+If true, recursively call find(dis.parent[x]) to find the root of x and update dis.parent[x] to the root.
+
+Return dis.parent[x] as the root of x.
+
+
+Step 3: If dis.parent[x] == x, return x.
+
+Step 4: Stop.
+
+
+---
+
+Union
+
+Step 1: Start.
+
+Step 2: Call find(x) and assign the result to xset.
+Call find(y) and assign the result to yset.
+
+Step 3: If xset == yset, return (no union needed).
+
+Step 4: If dis.rank[xset] < dis.rank[yset], set dis.parent[xset] = yset.
+
+Step 5: If dis.rank[xset] > dis.rank[yset], set dis.parent[yset] = xset.
+
+Step 6: If dis.rank[xset] == dis.rank[yset]:
+
+Set dis.parent[yset] = xset.
+
+Increment dis.rank[xset] by 1.
+
+
+Step 7: Stop.
+
+
+---
+
+main
+
+Step 1: Start.
+
+Step 2: Input the number of elements dis.n and call makeSet() to initialize the disjoint-set data structure.
+
+Step 3: Display the menu with options:
+
+1. Union
+
+2. Find
+
+3. Display
+
+Step 4: Read the user's choice and perform the corresponding operation:
+
+If choice is 1, input two elements and call Union(x, y).
+
+If choice is 2, input two elements and check if they belong to the same set using find(x) and find(y).
+
+If choice is 3, call displaySet() to print the parent and rank arrays.
+
+If the choice is invalid, print "Invalid choice".
+
+
+Step 5: Ask the user if they wish to continue. If yes, repeat the menu. If no, stop.
+
+Step 6: Stop.
+

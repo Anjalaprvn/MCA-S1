@@ -1,0 +1,51 @@
+
+---
+
+bfs
+
+Step 1: Start.
+
+Step 2: Initialize the queue with size MAX, and set front and rear to 0.
+
+Step 3: Initialize the visited array with false values.
+
+Step 4: Mark the starting vertex as visited (visited[s] = true) and enqueue the starting vertex (queue[rear++] = s).
+
+Step 5: While the queue is not empty (front < rear):
+
+a. Dequeue a vertex by setting curr = queue[front++] and print curr.
+
+b. For each adjacent vertex (i from 0 to V):
+
+If adj[curr][i] == 1 and visited[i] == false:
+
+Mark visited[i] as true.
+
+Enqueue i (queue[rear++] = i).
+
+Step 6: Print the traversal result.
+
+Step 7: Stop.
+
+
+---
+
+main
+
+Step 1: Start.
+
+Step 2: Read the number of vertices (V) and edges (E).
+
+Step 3: Initialize the adjacency matrix adj[MAX][MAX] to 0.
+
+Step 4: For each edge (u, v), update adj[u][v] and adj[v][u] to 1 (undirected graph).
+
+Step 5: Read the starting vertex for BFS.
+
+Step 6: Call bfs(adj, V, startVertex) to perform the BFS traversal.
+
+Step 7: Stop.
+
+
+---
+

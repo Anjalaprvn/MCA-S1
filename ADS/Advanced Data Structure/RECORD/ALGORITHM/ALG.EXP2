@@ -1,0 +1,104 @@
+push
+
+Step 1: Start.
+
+Step 2: Allocate memory for a new stack node ptr using malloc.
+
+Step 3: Set ptr->data = val.
+
+Step 4: Check if the stack is empty (top == NULL):
+
+If true, set ptr->next = NULL and top = ptr.
+
+Otherwise, set ptr->next = top and update top = ptr.
+
+
+Step 5: Return the updated top pointer.
+
+Step 6: Stop.
+
+
+---
+
+display
+
+Step 1: Start.
+
+Step 2: Set ptr = top.
+
+Step 3: Check if the stack is empty (top == NULL):
+
+If true, print "STACK IS EMPTY".
+
+Otherwise, loop through the stack:
+
+Print ptr->data.
+
+Move ptr to the next node (ptr = ptr->next).
+
+
+
+Step 4: Return the top pointer.
+
+Step 5: Stop.
+
+
+---
+
+pop
+
+Step 1: Start.
+
+Step 2: Set ptr = top.
+
+Step 3: Check if the stack is empty (top == NULL):
+
+If true, print "STACK UNDERFLOW".
+
+Otherwise:
+
+Set top = top->next.
+
+Print the deleted value: ptr->data.
+
+Free the memory allocated for ptr using free(ptr).
+
+Step 4: Return the updated top pointer.
+
+Step 5: Stop.
+
+
+---
+
+main
+
+Step 1: Start.
+
+Step 2: Display the main menu with options:
+
+1. PUSH
+
+2. POP
+
+3. DISPLAY
+
+4. EXIT
+
+Step 3: Read the user's option.
+
+Step 4: If the option is:
+
+1 (PUSH): Ask for the value, call push(top, val), and update top.
+
+2 (POP): Call pop(top) and update top.
+
+3 (DISPLAY): Call display(top) and update top.
+
+4 (EXIT): Exit the program.
+
+Default: Print "Invalid choice".
+
+
+Step 5: Repeat until the user chooses option 4 (EXIT).
+
+Step 6: Stop.

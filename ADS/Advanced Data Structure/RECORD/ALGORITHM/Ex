@@ -1,0 +1,51 @@
+Here is the step-by-step algorithm for the given C program:
+
+---
+
+### **ALGORITHM**
+
+**Step 1**: Start.  
+
+**Step 2**: Read the size of the first array `n`.  
+
+**Step 3**: Set `i = 0`. Repeat Step 4 until `i < n`.  
+
+**Step 4**: Read the elements of the first array `a[i]`.  
+
+**Step 5**: Increment `i = i + 1` and go to Step 3.  
+
+**Step 6**: Read the size of the second array `m`.  
+
+**Step 7**: Set `i = 0`. Repeat Step 8 until `i < m`.  
+
+**Step 8**: Read the elements of the second array `b[i]`.  
+
+**Step 9**: Increment `i = i + 1` and go to Step 7.  
+
+**Step 10**: Initialize `i = 0`, `j = 0`, `z = 0`. Calculate `k = n + m` (size of the merged array).  
+
+**Step 11**: Repeat Steps 12-15 until `z < k`.  
+
+**Step 12**: If `i >= n` (all elements of the first array are processed), go to Step 14.  
+
+**Step 13**: If `j >= m` (all elements of the second array are processed), go to Step 15.  
+
+**Step 14**: If `a[i] < b[j]` and `i < n`, set:  
+   - `c[z] = a[i]`  
+   - Increment `i = i + 1`.  
+   - Increment `z = z + 1`.  
+   - Go to Step 11.  
+
+**Step 15**: Otherwise, set:  
+   - `c[z] = b[j]`  
+   - Increment `j = j + 1`.  
+   - Increment `z = z + 1`.  
+   - Go to Step 11.  
+
+**Step 16**: Print the merged array `c` of size `k`.  
+
+**Step 17**: Stop.  
+
+---
+
+This algorithm ensures that the two sorted arrays are merged into a single sorted array efficiently.

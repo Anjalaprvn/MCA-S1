@@ -1,0 +1,77 @@
+minKey
+
+Step 1: Start.
+
+Step 2: Initialize min as INT_MAX and minIndex as an undefined value.
+
+Step 3: Loop through all vertices v from 0 to V-1:
+
+If vertex v is not in the MST (!mstSet[v]) and the key value key[v] is smaller than min, update min and set minIndex = v.
+
+
+Step 4: Return minIndex.
+
+Step 5: Stop.
+
+
+---
+
+primMST
+
+Step 1: Start.
+
+Step 2: Initialize arrays:
+
+parent[] to store parent vertices.
+
+key[] to store the minimum key values.
+
+mstSet[] to track included vertices in the MST.
+Set key[0] = 0.
+
+
+Step 3: Repeat V-1 times (as MST will have V-1 edges):
+
+Call minKey() to find vertex u with the minimum key value.
+
+Set mstSet[u] = true.
+
+For each adjacent vertex v of u:
+
+If v is not in MST and adj[u][v] < key[v], update key[v] and set parent[v] = u.
+
+
+
+Step 4: After the loop, print each edge from parent[] and its respective weight.
+
+Step 5: Calculate and display the total cost of the MST.
+
+Step 6: Stop.
+
+
+---
+
+addEdge
+
+Step 1: Start.
+
+Step 2: Set adj[u][v] = weight and adj[v][u] = weight to add the edge between vertices u and v with the given weight.
+
+Step 3: Stop.
+
+
+---
+
+main
+
+Step 1: Start.
+
+Step 2: Input the number of vertices V and edges E.
+
+Step 3: Initialize the adjacency matrix adj[MAX][MAX] with zeros.
+
+Step 4: Loop to input E edges, for each edge (u, v, weight), call addEdge() to update the adjacency matrix.
+
+Step 5: Call primMST() to compute and display the Minimum Spanning Tree.
+
+Step 6: Stop.

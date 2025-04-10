@@ -1,0 +1,81 @@
+Here's the algorithm for the Binary Search Tree (BST) operations (Insert, Delete, Inorder Traversal) as described in the provided C program:
+
+---
+
+### Binary Search Tree (BST) Operations Algorithm
+
+#### 1. Insert Operation Algorithm
+
+Step 1: Start.
+
+Step 2: If the root is NULL (empty tree), create a new node with the given value and return it as the root.
+
+Step 3: If the tree is not empty, compare the given value with the root node's data:
+   - If the value is less than the root's data, insert the value in the left subtree.
+   - If the value is greater than the root's data, insert the value in the right subtree.
+
+Step 4: After insertion, return the root node to maintain the tree structure.
+
+Step 5: End.
+
+---
+
+#### 2. Delete Operation Algorithm
+
+Step 1: Start.
+
+Step 2: If the root is NULL, return NULL (empty tree).
+
+Step 3: Compare the given value with the root's data:
+   - If the value is less than the root's data, recursively delete the value from the left subtree.
+   - If the value is greater than the root's data, recursively delete the value from the right subtree.
+
+Step 4: If the value to be deleted matches the root node's data:
+   - If the node has no left child, replace the node with its right child (if any).
+   - If the node has no right child, replace the node with its left child (if any).
+   - If the node has both left and right children, find the minimum value node in the right subtree, copy its data to the current node, and recursively delete the node with the minimum value.
+
+Step 5: Return the modified root node.
+
+Step 6: End.
+
+---
+
+#### 3. Inorder Traversal Algorithm
+
+Step 1: Start.
+
+Step 2: If the current node is not NULL:
+   - Recursively traverse the left subtree.
+   - Print the current node's data.
+   - Recursively traverse the right subtree.
+
+Step 3: End.
+
+---
+
+#### Main Program Flow
+
+Step 1: Display the menu options:
+   - 1. Insert
+   - 2. Delete
+   - 3. Inorder Traversal
+   - 4. Exit
+
+Step 2: Read the user's choice.
+
+Step 3: Execute the corresponding operation based on the user's input:
+   - If the user chooses Insert, prompt for the value and call the insert function.
+   - If the user chooses Delete, prompt for the value and call the deleteNode function.
+   - If the user chooses Inorder Traversal, display the result of the inorder traversal.
+   - If the user chooses Exit, terminate the program.
+
+Step 4: If an invalid choice is made, print "Invalid choice! Please try again."
+
+Step 5: Repeat the above steps until the user selects Exit.
+
+Step 6: Stop.
+
+---
+
+This algorithm outlines the three core operations on a Binary Search Tree (BST)—insert, delete, and inorder traversal—along with the corresponding logic and steps as implemented in the provided C program.

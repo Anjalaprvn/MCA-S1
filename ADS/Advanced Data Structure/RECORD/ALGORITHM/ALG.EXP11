@@ -1,0 +1,99 @@
+readset
+
+Step 1: Start.
+
+Step 2: Loop i = 0 to n-1 to read elements for set a[]:
+
+Input element x.
+
+Loop k = 0 to size-1:
+
+If uset[k] == x, set a[k].x = 1 and break.
+
+
+
+Step 3: Stop.
+
+
+---
+
+printset
+
+Step 1: Start.
+
+Step 2: Print "{".
+
+Step 3: Loop k = 0 to size-1:
+
+If a[k].x == 1, print uset[k] followed by a comma.
+
+
+Step 4: Print "}".
+
+Step 5: Stop.
+
+
+---
+
+unionset
+
+Step 1: Start.
+
+Step 2: Loop k = 0 to size-1:
+
+Set c[k].x = a[k].x | b[k].x (perform the bitwise OR operation).
+
+
+Step 3: Stop.
+
+
+---
+
+intersect
+
+Step 1: Start.
+
+Step 2: Loop k = 0 to size-1:
+
+Set c[k].x = a[k].x & b[k].x (perform the bitwise AND operation).
+
+
+Step 3: Stop.
+
+
+---
+
+difference
+
+Step 1: Start.
+
+Step 2: Loop k = 0 to size-1:
+
+If a[k].x == 1, set c[k].x = a[k].x ^ b[k].x (perform the bitwise XOR operation).
+
+
+Step 3: Stop.
+
+
+---
+
+main
+
+Step 1: Start.
+
+Step 2: Declare three sets a[10], b[10], and c[10].
+
+Step 3: Input the number of elements n in set A and call readset(a, n).
+
+Step 4: Input the number of elements n in set B and call readset(b, n).
+
+Step 5: Call printset(a) and printset(b) to display sets A and B.
+
+Step 6: Call unionset(a, b, c) to perform union of A and B, then display the result.
+
+Step 7: Call intersect(a, b, c) to perform intersection of A and B, then display the result.
+
+Step 8: Call difference(a, b, c) to perform difference of A and B, then display the result.
+
+Step 9: Stop.
+

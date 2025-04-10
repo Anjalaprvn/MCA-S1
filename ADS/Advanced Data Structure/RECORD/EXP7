@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <stdbool.h>
+
+#define MAX 100
+
+void dfs(int adj[MAX][MAX], int V, int s, bool visited[MAX]) {
+    int i;
+    visited[s] = true;
+    printf("%d ", s);
+    
+    for (i = 0; i <=V; i++) {
+        if (adj[s][i] == 1 && !visited[i]) {
+            dfs(adj, V, i, visited);
+        }
+    }
+}
+
+int main() {
+    int V, E, u, v, startVertex, i;
+    int adj[MAX][MAX] = {0};
+    
+    printf("Enter number of vertices: ");
+    scanf("%d", &V);
+    printf("Enter number of edges: ");
+    scanf("%d", &E);
+    
+    printf("Enter edges (u v):\n");
+    for (i = 0; i < E; i++) {
+        scanf("%d %d", &u, &v);
+        adj[u][v] = adj[v][u] = 1;
+    }
+    
+    bool visited[MAX] = {false};
+    printf("DFS starting from vertex : ");
+    scanf("%d", &startVertex);
+    
+    dfs(adj, V, startVertex, visited);
+    
+    return 0;
+}

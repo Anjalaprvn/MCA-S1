@@ -1,0 +1,73 @@
+Here are the separate algorithms for the three stack operations (PUSH, POP, and DISPLAY) implemented using a linked list:
+
+---
+
+### 1. PUSH Operation Algorithm
+
+Step 1: Start.
+
+Step 2: Create a new node ptr of type struct stack.
+
+Step 3: Read the value to be pushed (val).
+
+Step 4: Allocate memory for the new node using malloc.
+
+Step 5: Set the data of the node:  
+   ptr->data = val.
+
+Step 6: If the stack is empty (top == NULL), set:  
+   - ptr->next = NULL  
+   - top = ptr (The new node is now the top of the stack).
+
+Step 7: Otherwise, if the stack is not empty:  
+   - Set ptr->next = top (Link the new node to the previous top).  
+   - Update top = ptr (The new node becomes the new top of the stack).
+
+Step 8: Return the updated top pointer.
+
+Step 9: End.
+
+---
+
+### 2. POP Operation Algorithm
+
+Step 1: Start.
+
+Step 2: Check if the stack is empty (top == NULL):  
+   - If the stack is empty, print “STACK UNDERFLOW” and return the current top.
+
+Step 3: If the stack is not empty:  
+   - Create a temporary pointer ptr and set ptr = top.  
+   - Move the top pointer to the next node: top = top->next.
+
+Step 4: Print the value being deleted:  
+   - printf("The value being deleted is: %d", ptr->data).
+
+Step 5: Free the memory allocated for the node: free(ptr).
+
+Step 6: Return the updated top pointer.
+
+Step 7: End.
+
+---
+
+### 3. DISPLAY Operation Algorithm
+
+Step 1: Start.
+
+Step 2: Create a temporary pointer ptr and set ptr = top.
+
+Step 3: Check if the stack is empty (top == NULL):  
+   - If the stack is empty, print “STACK IS EMPTY” and return the current top.
+
+Step 4: If the stack is not empty, traverse the stack using a while loop (ptr != NULL):  
+   - Print the value of the current node: printf("%d", ptr->data).  
+   - Move ptr to the next node: ptr = ptr->next.
+
+Step 5: After all nodes are displayed, return the top pointer.
+
+Step 6: End.
+
+---
+
+These separate algorithms detail the steps for each stack operation (push, pop, and display) when implemented using a linked list.

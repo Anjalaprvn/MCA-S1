@@ -1,0 +1,149 @@
+isFull
+
+Step 1: Start.
+
+Step 2: Check if the queue is full:
+
+If (rear + 1) % MAX == front, return 1 (queue is full).
+
+Otherwise, return 0 (queue is not full).
+
+
+Step 3: Stop.
+
+
+---
+
+isEmpty
+
+Step 1: Start.
+
+Step 2: Check if the queue is empty:
+
+If front == -1, return 1 (queue is empty).
+
+Otherwise, return 0 (queue is not empty).
+
+
+Step 3: Stop.
+
+
+---
+
+enqueue
+
+Step 1: Start.
+
+Step 2: Check if the queue is full by calling isFull().
+
+If full, print "Queue is full! Cannot insert value".
+
+Otherwise:
+
+If front == -1, set front = 0.
+
+Update rear = (rear + 1) % MAX.
+
+Insert the value into queue[rear].
+
+Print "value inserted into queue".
+
+
+
+Step 3: Stop.
+
+
+---
+
+dequeue
+
+Step 1: Start.
+
+Step 2: Check if the queue is empty by calling isEmpty().
+
+If empty, print "Queue is empty! Cannot perform dequeue".
+
+Otherwise:
+
+Retrieve the value to be deleted from queue[front].
+
+If front == rear, set front = rear = -1 (queue is now empty).
+
+Otherwise, update front = (front + 1) % MAX.
+
+Print "value deleted from queue".
+
+
+
+Step 3: Stop.
+
+
+---
+
+display
+
+Step 1: Start.
+
+Step 2: Check if the queue is empty by calling isEmpty().
+
+If empty, print "Queue is empty! Nothing to display".
+
+Otherwise:
+
+Set i = front.
+
+Traverse the queue from front to rear using a while loop, printing each element.
+
+Ensure the loop wraps around the queue using (i + 1) % MAX.
+
+Print the last element queue[rear].
+
+
+
+Step 3: Stop.
+
+
+---
+
+main
+
+Step 1: Start.
+
+Step 2: Display the menu with the following options:
+
+1. Enqueue
+
+
+
+2. Dequeue
+
+
+
+3. Display
+
+
+
+4. Exit
+
+
+
+
+Step 3: Read the user's choice.
+
+Step 4: If the choice is:
+
+1 (Enqueue): Read the value and call enqueue(value).
+
+2 (Dequeue): Call dequeue().
+
+3 (Display): Call display().
+
+4 (Exit): Exit the program.
+
+Default: Print "Invalid choice! Please try again".
+
+
+Step 5: Repeat the menu until the user chooses option 4 (Exit).
+
+Step 6: Stop.
+
