@@ -1,0 +1,65 @@
+<html>
+<head>
+  <title>PHP Form Validation</title>
+</head>
+<body>
+  <h1>Registration Form</h1>
+  <form method="post">
+    Name: <input type="text" name="name"><br><br>
+    Email: <input type="email" name="email"><br><br>
+    Password: <input type="password" name="password"><br><br>
+    Confirm Password: <input type="password" name="confirm_password"><br><br>
+    Phone: <input type="text" name="phone"><br><br>
+    <input type="submit" value="Register">
+  </form>
+
+  <?php
+    if ($_POST) {
+      $errors = [];
+
+      $name = $_POST['name'];
+      $email = $_POST['email'];
+      $password = $_POST['password'];
+      $confirm_password = $_POST['confirm_password'];
+      $phone = $_POST['phone'];
+
+      // Validate Name
+      if (empty($name)) {
+        $errors[] = "Name is required.";
+      }
+      if (!preg_match("/^[a-zA-Z ]*$/", $name)) {
+        $errors[] = "Name should only have alphabets and spaces.";
+      }
+
+      // Validate Email
+      if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $errors[] = "Invalid email.";
+      }
+
+      // Validate Password
+      if (empty($password)) {
+        $errors[] = "Password is required.";
+      }
+
+      // Check if Passwords match
+      if ($password !== $confirm_password) {
+        $errors[] = "Passwords do not match.";
+      }
+
+      // Validate Phone
+      if (!preg_match("/^[0-9]{10}$/", $phone)) {
+        $errors[] = "Invalid phone number.";
+      }
+
+      // Output Errors or Success
+      if (empty($errors)) {
+        echo "Registration successful!";
+      } else {
+        foreach ($errors as $error) {
+          echo $error . "<br>";
+        }
+      }
+    }
+  ?>
+</body>
+</html>

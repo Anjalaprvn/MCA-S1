@@ -1,0 +1,38 @@
+<html>
+<head>
+    <title>Electricity Bill</title>
+</head>
+<body>
+    <h2>Electricity Bill Calculator</h2>
+    <form method="post">
+        Consumer ID: <input type="text" name="consumer_id" required><br><br>
+        Enter Units: <input type="number" name="units" required><br><br>
+        <button type="submit">Calculate</button>
+    </form>
+
+    <?php
+    if ($_POST) {
+        $consumerId = $_POST['consumer_id'];
+        $units = $_POST['units'];
+
+        function calculateBill($units) {
+            if ($units <= 50) {
+                return $units * 3.50;
+            } elseif ($units <= 150) {
+                return (50 * 3.50) + (($units - 50) * 4.00);
+            } elseif ($units <= 250) {
+                return (50 * 3.50) + (100 * 4.00) + (($units - 150) * 5.20);
+            } else {
+                return (50 * 3.50) + (100 * 4.00) + (100 * 5.20) + (($units - 250) * 6.50);
+            }
+        }
+
+        $totalBill = calculateBill($units);
+        echo "<h3>Bill Details</h3>";
+        echo "Consumer ID: $consumerId<br>";
+        echo "Units: $units<br>";
+        echo "Amount: ₹" . number_format($totalBill, 2);
+    }
+    ?>
+</body>
+</html
